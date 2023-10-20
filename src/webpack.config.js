@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin')
 const path = require('path')
 
 module.exports = {
@@ -10,5 +12,9 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, '../public')
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new HtmlWebpackTagsPlugin({ scripts: ['somefile.js'], publicPath: false })
+  ]
 }

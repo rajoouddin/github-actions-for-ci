@@ -24,16 +24,16 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-2016]
-        node-version: [16.x, 14.x]  # Updated Node.js versions
+        node-version: [16.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v3  # Updated to v3
-    - uses: actions/download-artifact@v3  # Updated to v3
+    - uses: actions/checkout@v3
+    - uses: actions/download-artifact@v4
       with: 
         name: webpack artifacts
         path: public
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3.8.1  # Updated to v3.8.1
+      uses: actions/setup-node@v3.8.1
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, and test

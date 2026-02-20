@@ -29,22 +29,22 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-20.04, ubuntu-22.04, windows-2019, windows-2022]
-        node-version: ['18', '20']
+        node-version: ['20', '22']
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - uses: actions/download-artifact@v4
-      with: 
-        name: webpack artifacts
-        path: public
-    - name: npm install and test
-      run: |
-        npm install
-        npm test
-      env:
-        CI: true
+      - uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - uses: actions/download-artifact@v4
+        with:
+          name: webpack artifacts
+          path: public
+      - name: npm install and test
+        run: |
+          npm install
+          npm test
+        env:
+          CI: true

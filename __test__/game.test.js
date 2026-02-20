@@ -1,5 +1,5 @@
-const Game = require('../src/game').default
-const fs = require('fs')
+import Game from '../src/game.js'
+import fs from 'fs'
 
 describe('App', () => {
   it('Contains the compiled JavaScript', async () => {

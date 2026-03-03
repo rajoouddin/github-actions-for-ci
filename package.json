@@ -32,5 +32,9 @@
   },
   "dependencies": {
     "node-forge": "^1.3.0"
+  },
+  "overrides": {
+    "serialize-javascript": "7.0.3",
+    "serialization-javascript": "7.0.3"
   }
 }
